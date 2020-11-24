@@ -1,0 +1,74 @@
+.layout1__wrapper{
+    height: 100%;
+    background-color: #eee;
+    position: relative;
+    background-size: cover;
+    color: #fff;
+    .layout1__header{
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(159, 174, 143,0.5);
+        padding: 15px 30px;
+        .layout1__logo{
+            height: 40px;
+            width: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .cmpny__name{
+            h2{
+                color: #fff;
+            }
+        }
+    }
+    .layout1__footer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-color: rgba(35, 86, 86, 0.7);
+        padding: 15px;
+        .layout1__list{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            li{
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+
+        .layout__address{
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .layout1__otherdetails{
+            display: flex;
+            justify-content: space-evenly;
+            padding: 15px;
+            div{
+                width: calc(10vw - 2px);
+            }
+            .det__value{
+                display: inline-block;
+                margin-left:10px;
+                font-weight: bold;
+            }
+            .layout1__contact{
+
+            }
+            .layout1__email{
+
+            }
+            .layout1__website{
+
+            }
+        }
+
+
+    }
+}
