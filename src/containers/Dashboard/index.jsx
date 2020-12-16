@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import DashboardComponent from './components/Dashboard';
 
-const Dashboard = () => (
+const Dashboard = (props) => (
   <Container className="dashboard">
     <Row>
       <Col md={12}>
@@ -10,7 +10,7 @@ const Dashboard = () => (
       </Col>
     </Row>
     <Row>
-      <DashboardComponent />
+      <DashboardComponent {...props}/>
     </Row>
   </Container>
 );

@@ -32,7 +32,7 @@ const Router = () => (
       <Switch>
         <Route exact path="/" component={LogIn} />
         <Route exact path="/log_in" component={LogIn} />
-        <Route exact path="/editor" component={Editor} />
+        <Route exact path="/editor/:template" component={Editor} />
         <Route path="/" component={wrappedRoutes} />
 
       </Switch>
