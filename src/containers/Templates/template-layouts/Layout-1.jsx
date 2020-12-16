@@ -2,21 +2,27 @@ import React, { useState, useEffect, Fragment, Component } from "react";
 import { Card, CardBody, Col, Button } from "reactstrap";
 import Row from "reactstrap/lib/Row";
 import { getFormValues } from "redux-form";
+import bg from './images/background.jpg'
+import logo from './images/servicenow-logo.png'
 
 import { connect } from "react-redux";
 class Layout1 extends Component {
   render() {
+    console.log(this.props);
     const formdata = this.props.templateForm;
 
-    const { name, address, contact, email, website } = formdata || "";
+    const { name, address, contact, email, website, file, selectedbg} = formdata || "";
 
-    const logo = "servicenow-logo.png";
-    const bg = "background.jpg";
+    const { preview } = file || '';
+    const logoimg = preview || logo ;
+
+    const bgimg = selectedbg || bg;
+
     const logobg = {
-      backgroundImage: "url(" + logo + ")",
+      backgroundImage: "url(" + logoimg + ")",
     };
     const imgbg = {
-      backgroundImage: "url(" + bg + ")",
+      backgroundImage: "url(" + bgimg + ")",
     };
 
     return (
@@ -62,6 +68,7 @@ class Layout1 extends Component {
 function mapStateToProps(state) {
   return {
     templateForm: getFormValues("layoutForm")(state), // here 'form' is the name you have given your redux form
+    data:state
   };
 }
 

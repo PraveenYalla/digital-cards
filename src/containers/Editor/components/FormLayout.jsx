@@ -15,6 +15,12 @@ import { Field, reduxForm } from "redux-form";
 import { downloadImage } from "../../Editor/components/DownloadImage";
 import renderFileInputField from "../../common/FileInput";
 
+import image from '../images/img1.jpg';
+import image2 from '../images/img2.jpg';
+import image3 from '../images/img3.jpg';
+
+import { getFormValues } from "redux-form";
+import { change } from 'redux-form'
 class FormLayout extends Component {
   constructor() {
     super();
@@ -35,6 +41,11 @@ class FormLayout extends Component {
   downloadImageFunc = () => {
     downloadImage("layout");
   };
+
+  changeBg = (img) => {
+    const setimg = img;
+    this.props.change('selectedbg', setimg)
+  }
 
   render() {
     var defaultValues = {
@@ -77,13 +88,14 @@ class FormLayout extends Component {
                       Photo
                     </NavLink>
                   </NavItem>
-                </Nav>
-                <TabContent activeTab={activeTab}>
-                  <TabPane tabId="1">
-                    <form
-                      className="form form--horizontal"
-                      initialValues={defaultValues}
-                    >
+                </Nav> <form
+                  className="form form--horizontal"
+                  initialValues={defaultValues}
+                >
+
+                  <TabContent activeTab={activeTab}>
+                    <TabPane tabId="1">
+
                       <div className="form__form-group">
                         <span className="form__form-group-label">
                           Company Name
@@ -168,12 +180,25 @@ class FormLayout extends Component {
                           </Button>
                         </ButtonToolbar>
                       </div>
-                    </form>
-                  </TabPane>
-                  <TabPane tabId="2">
-                    <div>Test</div>
-                  </TabPane>
-                </TabContent>
+                    </TabPane>
+                    <TabPane tabId="2">
+                      <Field
+                        name="selectedbg"
+                        component="input"
+                        type="hidden"
+                        placeholder=""
+                      />
+                      <div className="images_list">
+                        <div className="image_item" style={{ backgroundImage: "url(" + image + ")" }} onClick={() => { this.changeBg(image) }} >
+                        </div>
+                        <div className="image_item" style={{ backgroundImage: "url(" + image2 + ")" }} onClick={() => { this.changeBg(image2) }} >
+                        </div>
+                        <div className="image_item" style={{ backgroundImage: "url(" + image3 + ")" }} onClick={() => { this.changeBg(image3) }} >
+                        </div>
+                      </div>
+                    </TabPane>
+                  </TabContent>
+                </form>
               </div>
             </div>
           </CardBody>
@@ -183,6 +208,14 @@ class FormLayout extends Component {
   }
 }
 
+
 export default reduxForm({
   form: "layoutForm", // a unique identifier for this form
+  initialValues: {
+    name: "Infosys PVT Limited",
+    address: "Hyderabad, Gachibowli",
+    website: "www.infosys.com",
+    contact: "9876543210",
+    email: "employee@infosys.com",
+  }
 })(FormLayout);

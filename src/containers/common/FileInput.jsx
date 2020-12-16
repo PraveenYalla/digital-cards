@@ -5,7 +5,7 @@ const FileInputField = ({ onChange, name, value }) => {
   const handleChange = (e) => {
     e.preventDefault();
     const files = [...e.target.files];
-    onChange({ file: files[0], name: files[0].name });
+    onChange({ file: files[0], name: files[0].name, preview: URL.createObjectURL(files[0]) });
   };
 
   return (

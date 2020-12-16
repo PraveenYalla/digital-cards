@@ -1,0 +1,11 @@
+.images_list{
+    display: flex;
+    flex-wrap: wrap;
+    .image_item{
+        width: 200px;
+        height: 150px;
+        background-color: #eee;
+        margin: 5px;
+        background-size: cover;
+    }
+}
